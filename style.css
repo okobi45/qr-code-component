@@ -1,92 +1,49 @@
-*{
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url('./design/Fixbg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: moveBackground 20s linear infinite;
 }
 
-
-/* For Desktop Screen */
-
-
-body {
-    background-color: hsl(217, 40%, 89%);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    font-family: 'Outfit', sans-serif;
-}
-
-.qrbox {
-    height: 480px;
-    width: 300px;
-    background-color: hsl(0, 0%, 100%);
-    border-radius: 20px;
-    margin: auto 0px auto 0px;
-}
-
-.qrbox img {
-    width: 280px;
-    height: 280px;
-    border-radius: 10px;
-    margin: 10px 0px 25px 0px;
-}
-
-.qrtext h3 {
-    font-weight: 700;
-    color: hsl(218, 44%, 22%);
-    padding: 0px 25px 10px 25px;
-}
-
-.qrtext p {
-    font-weight: 400;
-    color: hsl(232, 8%, 65%);
-    padding: 0px 20px 10px 20px;
-    font-size: 15px;
-}
-
-
-
-/* For Mobile Screen  */
-
-
-@media (max-width: 390px) {
-
-    body {
-        background-color: hsl(217, 40%, 89%);
-        height: 100vh;
-        align-items: center;
-        text-align: center;
-        font-family: 'Outfit', sans-serif;
+@keyframes moveBackground {
+    0% {
+        background-position: 0 0;
     }
-    
-    .qrbox {
-        height: 460px;
-        width: 280px;
-        background-color: hsl(0, 0%, 100%);
-        border-radius: 20px;
-        margin: auto;
-    }
-    
-    .qrbox img {
-        width: 260px;
-        height: 260px;
-        border-radius: 10px;
-        margin: 10px 0px 25px 0px;
-    }
-    
-    .qrtext h3 {
-        font-weight: 700;
-        color: hsl(218, 44%, 22%);
-        padding: 0px 25px 10px 25px;
-    }
-    
-    .qrtext p {
-        font-weight: 400;
-        color: hsl(232, 8%, 65%);
-        padding: 0px 15px 10px 15px;
-        font-size: 15px;
-    }
-    
 
-  }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+#qrcode {
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+}
+
+.animated-button {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.animated-button:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s;
+}
+
+.animated-button:hover:after {
+    left: 100%;
+}
